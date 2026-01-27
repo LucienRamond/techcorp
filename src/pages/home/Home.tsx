@@ -1,3 +1,18 @@
+import Page from "@/components/custom/Page";
+import Metrics from "./metrics/Metrics";
+
 export default function Home() {
-  return <div>Homepage</div>;
+  return (
+    <Page>
+      <div className=" grid gap-2">
+        <div className=" text-foreground text-4xl font-bold">
+          Internal Tools Dashboard
+        </div>
+        <div className=" text-muted-foreground">
+          Monitor and manage your organization's tools and expenses
+        </div>
+      </div>
+      <Metrics />
+    </Page>
+  );
 }
