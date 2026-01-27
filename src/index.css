@@ -1,5 +1,5 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -13,6 +13,19 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.bg-purple-gradient {
+  background: linear-gradient(
+    to right bottom,
+    rgb(88, 88, 255),
+    rgb(122, 101, 255),
+    rgb(191, 0, 191)
+  );
+}
+
+.bg-orange-gradient {
+  background: linear-gradient(to right bottom, yellow, rgb(255, 111, 0));
 }
 
 @media (prefers-color-scheme: light) {
