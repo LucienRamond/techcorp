@@ -6,8 +6,8 @@ import {
   NavigationMenuList,
 } from "../../components/ui/navigation-menu";
 import { navigationMenuTriggerStyle } from "../../components/ui/navigation-menu-trigger-style";
-import { MoonIcon, ZapIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ZapIcon } from "lucide-react";
+import ToggleTheme from "@/components/custom/ToggleTheme";
 
 export default function Navbar() {
   return (
@@ -20,7 +20,9 @@ export default function Navbar() {
               color="white"
               className=" bg-purple-gradient p-1 rounded-md"
             />
-            <div className=" text-xl text-black font-semibold">TechCorp</div>
+            <div className=" text-xl text-foreground font-semibold">
+              TechCorp
+            </div>
           </div>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -48,14 +50,7 @@ export default function Navbar() {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className=" ml-auto">
-          <NavigationMenuLink
-            asChild
-            className={`${navigationMenuTriggerStyle()}`}
-          >
-            <Button>
-              <MoonIcon />
-            </Button>
-          </NavigationMenuLink>
+          <ToggleTheme />
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
