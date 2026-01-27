@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Navbar from "./pages/navigation/Navbar";
 import Tools from "./pages/tools/Tools";
 import Analytics from "./pages/analytics/Analytics";
+import Settings from "./pages/settings/Settings";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/tools" element={<Tools />} />
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
   );

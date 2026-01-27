@@ -8,6 +8,9 @@ import {
 import { navigationMenuTriggerStyle } from "../../components/ui/navigation-menu-trigger-style";
 import { ZapIcon } from "lucide-react";
 import ToggleTheme from "@/components/custom/ToggleTheme";
+import SearchBar from "./searchbar/SearchBar";
+import Notifications from "./notifications/Notifications";
+import User from "./user/User";
 
 export default function Navbar() {
   return (
@@ -49,9 +52,20 @@ export default function Navbar() {
             <Link to={"/analytics"}>Analytics</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem className=" ml-auto">
-          <ToggleTheme />
+        <NavigationMenuItem>
+          <NavigationMenuLink
+            asChild
+            className={`${navigationMenuTriggerStyle()}`}
+          >
+            <Link to={"/settings"}>Settings</Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
+        <div className=" ml-auto flex gap-1 items-center">
+          <SearchBar />
+          <ToggleTheme />
+          <Notifications />
+          <User />
+        </div>
       </NavigationMenuList>
     </NavigationMenu>
   );
