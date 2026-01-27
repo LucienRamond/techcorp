@@ -11,8 +11,8 @@ import ToggleTheme from "@/components/custom/ToggleTheme";
 
 export default function Navbar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList className=" border-b w-screen justify-start p-4 text-gray-500">
+    <NavigationMenu className=" min-w-full *:w-full">
+      <NavigationMenuList className=" flex border-b p-4 items-stretch text-gray-500">
         <NavigationMenuItem className=" px-4">
           <div className=" flex items-center gap-3">
             <ZapIcon

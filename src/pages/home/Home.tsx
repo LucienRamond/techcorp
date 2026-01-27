@@ -1,5 +1,6 @@
 import Page from "@/components/custom/Page";
 import Metrics from "./metrics/Metrics";
+import RecentTools from "./recent_tools/RecentTools";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         </div>
       </div>
       <Metrics />
+      <RecentTools />
     </Page>
   );
 }
