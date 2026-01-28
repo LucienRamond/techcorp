@@ -29,6 +29,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Status from "@/components/custom/Status";
 
 export default function RecentTools() {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -79,20 +80,13 @@ export default function RecentTools() {
                 className={`${index % 2 != 0 && "bg-muted/10"} p-2 `}
               >
                 <AccordionTrigger className=" sm:text-[16px]">
-                  <div className=" grid grid-cols-[1fr_1fr_50px] w-full">
+                  <div className=" grid grid-cols-[1fr_1fr_max-content] w-full">
                     <div className=" flex gap-2">
                       {icon(tool.owner_department)}
                       {tool.name}
                     </div>
                     <div>{tool.owner_department}</div>
-                    <div
-                      className={`${tool.status == "active" && "bg-green-gradient"} 
-                        ${tool.status == "expiring" && "bg-orange-gradient -translate-x-3"} 
-                        ${tool.status == "unused" && "bg-red-600 -translate-x-3"} 
-                        rounded-xl w-fit px-2 text-white capitalize h-6 `}
-                    >
-                      {tool.status}
-                    </div>
+                    <Status status={tool.status} />
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className=" text-muted-foreground sm:text-[16px]">

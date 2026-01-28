@@ -1,19 +1,28 @@
 import Page from "@/components/custom/Page";
-import { columns } from "@/components/custom/tools_table/ToolsColumns";
-import { DataTable } from "@/components/custom/tools_table/ToolsDataTable";
+import ToolCard from "@/components/custom/ToolCard";
+import { ContentContext } from "@/providers/settings/SettingsContext";
 import type { ToolsType } from "@/utils/types/tools";
 import { CalendarIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Tools() {
   const [tools, setTools] = useState<ToolsType[]>([]);
+  const { content } = useContext(ContentContext);
   const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
-    fetch(`${BASE_URL}/tools`)
-      .then((response) => response.json())
-      .then((data) => setTools(data));
-  }, [BASE_URL]);
+    if (content.search) {
+      fetch(`${BASE_URL}/tools?name_like=${content.search}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setTools(data);
+        });
+    } else {
+      fetch(`${BASE_URL}/tools`)
+        .then((response) => response.json())
+        .then((data) => setTools(data));
+    }
+  }, [BASE_URL, content]);
 
   return (
     <Page>
@@ -27,10 +36,16 @@ export default function Tools() {
             <div className=" sm:text-2xl font-semibold">Tools</div>
             <div className=" flex gap-2 justify-items-center items-center">
               <CalendarIcon color="var(--muted-foreground)" size={"1rem"} />
-              <div className=" text-muted-foreground">All tools</div>
+              <div className=" text-muted-foreground">
+                {content.search ? `Results for ${content.search}` : "All tools"}
+              </div>
             </div>
           </div>
-          <DataTable columns={columns} data={tools} />
+          <div className=" grid grid-cols-3 gap-4">
+            {tools.map((tool) => {
+              return <ToolCard tool={tool} />;
+            })}
+          </div>
         </div>
       </div>
     </Page>

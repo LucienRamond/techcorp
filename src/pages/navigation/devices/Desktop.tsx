@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -13,6 +13,7 @@ import Notifications from "../notifications/Notifications";
 import User from "../user/User";
 
 export default function Desktop() {
+  const location = useLocation();
   return (
     <NavigationMenu className=" min-w-full *:w-full">
       <NavigationMenuList className=" flex border-b p-4 items-stretch text-gray-500">
@@ -60,7 +61,9 @@ export default function Desktop() {
             <Link to={"/settings"}>Settings</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
-        <div className=" ml-auto flex gap-1 items-center">
+        <div
+          className={` ml-auto flex gap-1 items-center ${location.pathname == "/tools" && "grow"}`}
+        >
           <SearchBar />
           <ToggleTheme />
           <Notifications />

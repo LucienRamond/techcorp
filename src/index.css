@@ -36,3 +36,11 @@ body {
 .bg-green-gradient {
   background: linear-gradient(0.25turn, rgb(0, 194, 110), rgb(6, 182, 205));
 }
+
+.bg-blue-gradient {
+  background: linear-gradient(0.25turn, rgb(0, 0, 255), rgb(0, 98, 255));
+}
+
+.bg-brown-gradient {
+  background: linear-gradient(0.25turn, rgb(83, 28, 0), rgb(161, 68, 34));
+}

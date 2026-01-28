@@ -1,17 +1,11 @@
 import type { ToolsType } from "@/utils/types/tools";
 import type { ColumnDef } from "@tanstack/react-table";
 import {
-  BriefcaseBusinessIcon,
-  DramaIcon,
+  ArrowUpDownIcon,
   EyeIcon,
-  MessageCircleIcon,
   MoreHorizontalIcon,
-  NotebookPenIcon,
-  PaletteIcon,
   PencilLineIcon,
   Trash2Icon,
-  ZapIcon,
-  ArrowUpDownIcon,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -21,6 +15,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Icon from "../icon/Icon";
+import Status from "../Status";
 
 export const columns: ColumnDef<ToolsType>[] = [
   {
@@ -28,26 +24,10 @@ export const columns: ColumnDef<ToolsType>[] = [
     header: "Tool",
     cell: ({ row }) => {
       const name: string = row.getValue("name");
-      const department = row.getValue("owner_department");
-      const icon = () => {
-        switch (department) {
-          case "Communication":
-            return <MessageCircleIcon />;
-          case "Design":
-            return <PaletteIcon />;
-          case "Engineering":
-            return <ZapIcon />;
-          case "Operations":
-            return <NotebookPenIcon />;
-          case "Marketing":
-            return <DramaIcon />;
-          case "Sales":
-            return <BriefcaseBusinessIcon />;
-        }
-      };
+      const department: string = row.getValue("owner_department");
       return (
         <div className=" flex gap-4">
-          <div>{icon()}</div>
+          <Icon department={department} />
           <div className=" text-foreground">{name}</div>
         </div>
       );
@@ -116,19 +96,8 @@ export const columns: ColumnDef<ToolsType>[] = [
       );
     },
     cell: ({ row }) => {
-      const status: string = row.getValue("status");
-      return (
-        <div className=" flex">
-          <div
-            className={`${status == "active" && "bg-green-gradient"} 
-                        ${status == "expiring" && "bg-orange-gradient"} 
-                        ${status == "unused" && "bg-red-600"} 
-                        rounded-xl w-fit px-2 text-white capitalize`}
-          >
-            {status}
-          </div>
-        </div>
-      );
+      const status: ToolsType["status"] = row.getValue("status");
+      return <Status status={status} style={"py-0!"} />;
     },
   },
   {
