@@ -38,9 +38,9 @@ body {
 }
 
 .bg-blue-gradient {
-  background: linear-gradient(0.25turn, rgb(0, 0, 255), rgb(0, 98, 255));
+  background: linear-gradient(0.25turn, rgb(56, 56, 255), rgb(79, 145, 252));
 }
 
 .bg-brown-gradient {
-  background: linear-gradient(0.25turn, rgb(83, 28, 0), rgb(161, 68, 34));
+  background: linear-gradient(0.25turn, rgb(130, 83, 59), rgb(126, 69, 47));
 }
