@@ -1,4 +1,3 @@
-import type { ToolsType } from "@/utils/types/tools";
 import {
   Card,
   CardAction,
@@ -8,53 +7,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import { Button } from "../ui/button";
+import type { ToolsType } from "@/utils/types/tools";
 import {
   EyeIcon,
   MoreHorizontalIcon,
   PencilLineIcon,
   Trash2Icon,
 } from "lucide-react";
+import { Button } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 import Status from "./Status";
-import Icon from "./icon/Icon";
-import placeholder from "./icon/placeholder.jpg";
+import { displayIcon } from "./icon/DisplayIcon";
 
 export default function ToolCard({ tool }: { tool: ToolsType }) {
-  const img_extension_regex: RegExp = /(?:\.([^.]+))?$/;
-
-  const displayIcon = (icon_url: string, department: string) => {
-    const extension = img_extension_regex.exec(icon_url);
-
-    const img = (
-      <img
-        src={`${icon_url}`}
-        className=" h-10 max-w-10 rounded-full border"
-        alt={`Company logo`}
-        onError={({ currentTarget }) => {
-          currentTarget.onerror = null;
-          currentTarget.src = `${placeholder}`;
-        }}
-      />
-    );
-
-    if (extension) {
-      switch (extension[1]) {
-        case "png":
-        case "ico":
-        case "svg":
-          return img;
-        default:
-          return <Icon department={department} />;
-      }
-    }
-  };
-
   return (
     <Card>
       <CardHeader>
