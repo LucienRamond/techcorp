@@ -7,7 +7,7 @@ import { SearchIcon } from "lucide-react";
 
 export default function SearchBar() {
   return (
-    <InputGroup className=" bg-secondary">
+    <InputGroup className=" bg-secondary mt-4 sm:mt-0">
       <InputGroupInput placeholder="Search tools..." />
       <InputGroupAddon>
         <SearchIcon />

@@ -21,11 +21,17 @@ export default function User() {
         <DropdownMenuTrigger className=" bg-none" asChild>
           <ChevronDownIcon size={"1rem"} />
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="px-4 -translate-x-2 translate-y-2">
           <DropdownMenuGroup>
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
+            <DropdownMenuLabel className=" text-muted-foreground text-xl sm:text-lg xl:text-sm">
+              My Account
+            </DropdownMenuLabel>
+            <DropdownMenuItem className=" text-xl sm:text-lg xl:text-sm">
+              Profile
+            </DropdownMenuItem>
+            <DropdownMenuItem className=" text-xl sm:text-lg xl:text-sm">
+              Settings
+            </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
