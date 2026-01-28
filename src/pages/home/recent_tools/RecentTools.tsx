@@ -20,8 +20,8 @@ import {
   ZapIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { DataTable } from "./DataTable";
-import { columns } from "./Columns";
+import { DataTable } from "../../../components/custom/tools_table/ToolsDataTable";
+import { columns } from "../../../components/custom/tools_table/ToolsColumns";
 import MediaQuery from "react-responsive";
 import {
   DropdownMenu,
