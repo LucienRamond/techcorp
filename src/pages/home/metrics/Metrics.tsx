@@ -16,7 +16,7 @@ export default function Metrics() {
   }, [BASE_URL]);
 
   return (
-    <div className=" grid grid-cols-4 gap-4">
+    <div className=" grid xl:grid-cols-4 sm:grid-cols-2 gap-2 sm:gap-4">
       {metrics && (
         <>
           <MonthlyBudget
