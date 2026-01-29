@@ -27,7 +27,7 @@ export default function Tools() {
 
   return (
     <Page>
-      <div className=" grid gap-2">
+      <div className=" sm:grid flex items-end gap-4">
         <div className=" text-foreground text-2xl sm:text-4xl font-bold">
           Tools
         </div>
@@ -37,7 +37,7 @@ export default function Tools() {
       <div className=" grid gap-4">
         <div className=" text-xl font-bold">Filters</div>
 
-        <div className=" flex gap-8 ">
+        <div className=" flex xl:gap-8 gap-4 flex-wrap">
           <DepartmentFilter setDepartmentFilter={setDepartmentFilter} />
           <CategoryFilter setCategoryFilter={setCategoryFilter} />
 

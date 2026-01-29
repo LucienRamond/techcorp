@@ -25,7 +25,7 @@ export default function CostRangeFilter({
   }, [BASE_URL, setCostRangeFilter]);
 
   return (
-    <div className="grid w-75 h-fit gap-3">
+    <div className="grid w-75 h-fit gap-3 mb-2">
       <div className="flex items-center justify-between gap-2">
         <Label htmlFor="cost-range-filter">Monthly Cost</Label>
         <span className="text-muted-foreground text-sm">
