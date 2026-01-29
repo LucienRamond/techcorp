@@ -1,3 +1,4 @@
+import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 export default function StatusFilter({
@@ -7,10 +8,12 @@ export default function StatusFilter({
 }) {
   return (
     <div className=" grid gap-2">
-      <div>Status</div>
+      <Label htmlFor="toggle-status">Status</Label>
       <ToggleGroup
+        id="toggle-status"
         variant="outline"
         type="single"
+        className=" bg-background"
         onValueChange={(e) =>
           e ? setStatusFilter(`&status=${e}`) : setStatusFilter("")
         }

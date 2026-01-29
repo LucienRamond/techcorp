@@ -1,4 +1,13 @@
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function CategoryFilter({
   setCategoryFilter,
@@ -7,63 +16,38 @@ export default function CategoryFilter({
 }) {
   return (
     <div className=" grid gap-2">
-      <div>Department</div>
-      <ToggleGroup
-        variant="outline"
-        type="single"
+      <Label htmlFor="select-category">Category</Label>
+      <Select
         onValueChange={(e) =>
-          e ? setCategoryFilter(`&category=${e}`) : setCategoryFilter("")
+          e != "All"
+            ? setCategoryFilter(`&category=${e}`)
+            : setCategoryFilter("")
         }
       >
-        <ToggleGroupItem
-          value="Communication"
-          aria-label="Toggle category communication"
+        <SelectTrigger
+          id="select-category"
+          className="w-full max-w-48 min-w-50 bg-background"
         >
-          Communication
-        </ToggleGroupItem>
-        <ToggleGroupItem value="Design" aria-label="Toggle category design">
-          Design
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="Development"
-          aria-label="Toggle category development"
-        >
-          Development
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="Productivity"
-          aria-label="Toggle category productivity"
-        >
-          Productivity
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="Project Management"
-          aria-label="Toggle category Project Management"
-        >
-          Project Management
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="Sales & Marketing"
-          aria-label="Toggle category Sales & Marketing"
-        >
-          Sales & Marketing
-        </ToggleGroupItem>
-        <ToggleGroupItem
-          value="Analytics"
-          aria-label="Toggle category Analytics"
-        >
-          Analytics
-        </ToggleGroupItem>
-        <ToggleGroupItem value="Security" aria-label="Toggle category Security">
-          Security
-        </ToggleGroupItem>
-        <ToggleGroupItem value="Finance" aria-label="Toggle category Finance">
-          Finance
-        </ToggleGroupItem>
-        <ToggleGroupItem value="HR" aria-label="Toggle category HR">
-          HR
-        </ToggleGroupItem>
-      </ToggleGroup>
+          <SelectValue placeholder="Select category" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Categories</SelectLabel>
+            <SelectItem value="All">All</SelectItem>
+            <SelectItem value="Communication">Communication</SelectItem>
+            <SelectItem value="Design">Design</SelectItem>
+            <SelectItem value="Development">Development</SelectItem>
+            <SelectItem value="Productivity">Productivity</SelectItem>
+            <SelectItem value="Project Management">
+              Project Management
+            </SelectItem>
+            <SelectItem value="Analytics">Analytics</SelectItem>
+            <SelectItem value="Security">Security</SelectItem>
+            <SelectItem value="Finance">Finance</SelectItem>
+            <SelectItem value="HR">HR</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
     </div>
   );
 }
