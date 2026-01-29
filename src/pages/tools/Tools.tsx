@@ -53,8 +53,16 @@ export default function Tools() {
           if (
             tool.monthly_cost > costRangeFilter[0] &&
             tool.monthly_cost < costRangeFilter[1]
-          )
+          ) {
             return <ToolCard key={tool.id} tool={tool} />;
+          } else {
+            if (
+              (tool.monthly_cost == 0 || !tool.monthly_cost) &&
+              costRangeFilter[0] == 0
+            ) {
+              return <ToolCard key={tool.id} tool={tool} />;
+            }
+          }
         })}
       </div>
     </Page>
