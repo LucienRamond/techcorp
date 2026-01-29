@@ -1,10 +1,20 @@
-🚀 Quick Start
+🚀 Installation
 
-Installation et lancement en une commande
+> npm install
+
+> Create a .env at the root of the project with the variable VITE_BASE_URL="your_server_path"
+
+> npm run dev
 
 🏗️ Architecture
 
-Structure projet et organisation du code sur 3 pages
+- Dossier src/
+  - components/
+    - custom/ # Reusable components home made
+    - ui/ # Shadcn reusable components
+  - pages/ # All the project pages
+  - providers/ # Settings and theme providers
+  - utils/ # Types and utils
 
 🎨 Design System Evolution
 
