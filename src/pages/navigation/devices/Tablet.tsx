@@ -63,7 +63,7 @@ export default function Tablet() {
             >
               <Link to={"/settings"}>Settings</Link>
             </NavigationMenuLink>
-          </NavigationMenuItem>{" "}
+          </NavigationMenuItem>
           <div className=" ml-auto flex gap-1 items-center">
             <SearchIcon
               color="var(--muted-foreground)"

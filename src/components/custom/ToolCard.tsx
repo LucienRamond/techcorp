@@ -30,14 +30,16 @@ import Icon from "./icon/Icon";
 export default function ToolCard({ tool }: { tool: ToolsType }) {
   const last_update = new Date(tool.updated_at);
   return (
-    <Card className=" bg-muted/15 shadow-xl hover:border-muted-foreground hover:bg-muted/50 duration-300 ease-in-out">
+    <Card className=" shadow-xl hover:border-muted-foreground hover:bg-background/50 duration-300 ease-in-out">
       <CardHeader>
         <CardTitle className=" flex gap-4 items-center">
           <div>{displayIcon(tool.icon_url, tool.owner_department)}</div>
           <div>{tool.name}</div>
           <Status status={tool.status} />
         </CardTitle>
-        <CardDescription>{tool.description}</CardDescription>
+        <CardDescription className=" first-letter:capitalize">
+          {tool.description}
+        </CardDescription>
         <CardAction>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -66,8 +68,8 @@ export default function ToolCard({ tool }: { tool: ToolsType }) {
           </DropdownMenu>
         </CardAction>
       </CardHeader>
-      <CardContent className=" grid grid-cols-2 gap-2 items-center">
-        <ul className="grid gap-1 font-bold text-2xl ">
+      <CardContent className=" grid items-center">
+        <ul className="grid gap-1 font-bold xl:text-2xl text-xl ">
           <li className=" flex">
             <EuroIcon
               className="mr-2 bg-orange-gradient rounded p-1"
@@ -94,7 +96,9 @@ export default function ToolCard({ tool }: { tool: ToolsType }) {
           <li className=" flex gap-2">
             <Icon department={tool.owner_department} />
             <div>{tool.owner_department}</div>
-            <div className=" text-muted-foreground">department</div>
+            <div className="xl:block hidden text-muted-foreground">
+              department
+            </div>
           </li>
         </ul>
       </CardContent>

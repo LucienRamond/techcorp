@@ -62,7 +62,7 @@ export default function Desktop() {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <div
-          className={` ml-auto flex gap-1 items-center ${location.pathname == "/tools" && "grow"}`}
+          className={` ml-auto flex gap-1 items-center linear duration-500 ${location.pathname == "/tools" && "grow duration-500 linear"}`}
         >
           <SearchBar />
           <ToggleTheme />
